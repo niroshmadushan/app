@@ -1,2 +1,0 @@
-1,john@example.com,2345,admin,active
-2,jane@example.com,password456,user,active
