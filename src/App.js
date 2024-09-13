@@ -30,35 +30,35 @@ function AppContent() {
         {user && <Sidebar />} {/* Conditionally render Sidebar based on user login */}
         <main style={{ flexGrow: 1, padding: '16px', marginLeft: user ? '10px' : '0' }}> {/* Adjust layout based on Sidebar presence */}
           <Routes>
-            <Route path="/login" element={<LoginPage />} />
+            <Route path="/app/" element={<LoginPage />} />
 
             {/* Admin Routes */}
             {user?.role === 'admin' && (
               <>
-                <Route path="/admin" element={<PrivateRoute><AdminPage /></PrivateRoute>} />
-                <Route path="/admin/users" element={<PrivateRoute><UserManagement /></PrivateRoute>} />
-                <Route path="/admin/book" element={<PrivateRoute><ViewBookings /></PrivateRoute>} />
-                <Route path="/admin/bookings" element={<PrivateRoute><BookingForm /></PrivateRoute>} />
-                <Route path="/admin/payments" element={<PrivateRoute><PaymentForm /></PrivateRoute>} />
-                <Route path="/admin/inventory" element={<PrivateRoute><InventoryManagement /></PrivateRoute>} />
-                <Route path="/admin/settings" element={<PrivateRoute><AccountSettings /></PrivateRoute>} />
+                <Route path="/app/admin" element={<PrivateRoute><AdminPage /></PrivateRoute>} />
+                <Route path="/app/admin/users" element={<PrivateRoute><UserManagement /></PrivateRoute>} />
+                <Route path="/app/admin/book" element={<PrivateRoute><ViewBookings /></PrivateRoute>} />
+                <Route path="/app/admin/bookings" element={<PrivateRoute><BookingForm /></PrivateRoute>} />
+                <Route path="/app/admin/payments" element={<PrivateRoute><PaymentForm /></PrivateRoute>} />
+                <Route path="/app/admin/inventory" element={<PrivateRoute><InventoryManagement /></PrivateRoute>} />
+                <Route path="/app/admin/settings" element={<PrivateRoute><AccountSettings /></PrivateRoute>} />
               </>
             )}
 
             {/* User Routes */}
             {user?.role === 'user' && (
               <>
-                <Route path="/user" element={<PrivateRoute><UserDashboard /></PrivateRoute>} />
-                <Route path="/user/bookings" element={<PrivateRoute><UserBooking /></PrivateRoute>} />
-                <Route path="/user/book" element={<PrivateRoute><ViewBookings /></PrivateRoute>} />
-                <Route path="/user/payments" element={<PrivateRoute><UserPayments /></PrivateRoute>} />
-                <Route path="/user/inventory" element={<PrivateRoute><InventoryManagement /></PrivateRoute>} />
-                <Route path="/user/settings" element={<PrivateRoute><UserAccountSettings /></PrivateRoute>} />
+                <Route path="/app/user" element={<PrivateRoute><UserDashboard /></PrivateRoute>} />
+                <Route path="/app/user/bookings" element={<PrivateRoute><UserBooking /></PrivateRoute>} />
+                <Route path="/app/user/book" element={<PrivateRoute><ViewBookings /></PrivateRoute>} />
+                <Route path="/app/user/payments" element={<PrivateRoute><UserPayments /></PrivateRoute>} />
+                <Route path="/app/user/inventory" element={<PrivateRoute><InventoryManagement /></PrivateRoute>} />
+                <Route path="/app/user/settings" element={<PrivateRoute><UserAccountSettings /></PrivateRoute>} />
               </>
             )}
 
             {/* Default Redirect Based on User Role */}
-            <Route path="/" element={user ? <Navigate to={user.role === 'admin' ? '/admin' : '/user/dashboard'} /> : <Navigate to="/login" />} />
+            <Route path="/app/" element={user ? <Navigate to={user.role === 'admin' ? '/admin' : '/user/dashboard'} /> : <Navigate to="/login" />} />
           </Routes>
         </main>
       </div>
