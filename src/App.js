@@ -30,7 +30,7 @@ function AppContent() {
         {user && <Sidebar />} {/* Conditionally render Sidebar based on user login */}
         <main style={{ flexGrow: 1, padding: '16px', marginLeft: user ? '10px' : '0' }}> {/* Adjust layout based on Sidebar presence */}
           <Routes>
-            <Route path="/" element={<LoginPage />} />
+            <Route path="/login" element={<LoginPage />} />
 
             {/* Admin Routes */}
             {user?.role === 'admin' && (
