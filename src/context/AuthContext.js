@@ -12,7 +12,17 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const response = await axios.post('http://appservice.wuaze.com/login.php', { email, password });
+      const response = await fetch('https://appservice.wuaze.com/login.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            email: email,
+            password: password
+        })
+    });
+      
       const userData = response.data.user;
   console.log(userData);
       if (!userData || !userData.role) {
