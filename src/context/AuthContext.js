@@ -12,7 +12,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const response = await axios.post('login.php', { email, password });
+      const response = await axios.post('https://appservice.wuaze.com/login.php', { email, password });
       const userData = response.data.user;
   console.log(userData);
       if (!userData || !userData.role) {
