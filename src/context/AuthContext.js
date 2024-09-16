@@ -12,7 +12,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const response = await fetch('http://appservice.wuaze.com/login.php', {
+      const response = await fetch('login.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
